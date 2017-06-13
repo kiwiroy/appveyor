@@ -14,7 +14,7 @@ share {
   build [
     'sh config -v -t --prefix=/tmp',
     '%{make}',
-    'sh echo $PATH',
+    'set',
     'where perl',
     'pacman -Qo /usr/bin/perl',
 
