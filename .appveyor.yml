@@ -1,0 +1,23 @@
+version: '{build}'
+shallow_clone: true
+
+environment:
+  global:
+    AUTHOR_TESTING: 1
+    CONFIGURE_CHECKER_WARN: 1
+  matrix:
+    - perl_type: strawberry
+
+install:
+  - 'call .appveyor.cmd perl_setup'
+  - '%perl% -V'
+  - 'sh --version'
+  - '%cpanm% --showdeps --with-develop --with-recommends --with-configure .'
+  - '%cpanm% --installdeps -n --with-develop --with-recommends --with-configure .'
+
+build: off
+
+test_script:
+  - '%perl% Makefile.PL'
+  - '%make%'
+  - '%make% test'

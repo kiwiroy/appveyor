@@ -1,0 +1,18 @@
+use alienfile;
+
+probe sub { 'share'; };
+
+share {
+  plugin 'Fetch::Local' => (
+    url => 'dist-1.0.0.tar.gz',
+  );
+
+  plugin Extract => 'tar.gz';
+
+  plugin 'Build::MSYS';
+
+  build [
+    'sh config -v -t --prefix=/tmp',
+    '%{make}',
+  ];
+};
