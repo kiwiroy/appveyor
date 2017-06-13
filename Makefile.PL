@@ -8,6 +8,7 @@ my %WriteMakefileArgs = (
   DISTNAME => 'Test-Something',
   NAME     => 'Test::Something',
   VERSION  => '0.1',
+  PREREQ_PM => { 'Alien::Build' => 0.44 },
 );
 
 $WriteMakefileArgs{BUILD_REQUIRES}{'Alien::MSYS'} = 0 if _win;
