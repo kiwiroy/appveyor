@@ -18,6 +18,7 @@ install:
 build: off
 
 test_script:
+  - 'uname -or'
   - '%perl% Makefile.PL'
   - '%make%'
   - '%make% test'
