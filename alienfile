@@ -12,8 +12,11 @@ share {
   plugin 'Build::MSYS';
 
   build [
-    'pacman -Qo /usr/bin/perl',
     'sh config -v -t --prefix=/tmp',
     '%{make}',
+    'sh echo $PATH',
+    'where perl',
+    'pacman -Qo /usr/bin/perl',
+
   ];
 };
