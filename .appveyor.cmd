@@ -18,6 +18,7 @@ if "%perl_type%" == "cygwin" (
     exit /b 1
   )
   set "PATH=C:\Strawberry\perl\site\bin;C:\Strawberry\perl\bin;C:\Strawberry\c\bin;%PATH%"
+  set "PERL=C:\Strawberry\perl\bin\perl.exe"
 ) else if "%perl_type%" == "system" (
   mkdir c:\dmake
   cinst -y curl
