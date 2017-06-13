@@ -9,14 +9,10 @@ share {
 
   plugin Extract => 'tar.gz';
 
-  plugin 'Build::MSYS';
+  #plugin 'Build::MSYS';
 
   build [
     'sh config -v -t --prefix=/tmp',
     '%{make}',
-    'set',
-    'where perl',
-    'pacman -Qo /usr/bin/perl',
-
   ];
 };

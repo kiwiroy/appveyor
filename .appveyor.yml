@@ -10,15 +10,17 @@ environment:
 
 install:
   - 'call .appveyor.cmd perl_setup'
+  - 'where perl'
   - '%perl% -V'
   - 'sh --version'
+  - 'set'
+  - 'uname -or'
   - '%cpanm% --showdeps --with-develop --with-recommends --with-configure .'
   - '%cpanm% --quiet --installdeps -n --with-develop --with-recommends --with-configure .'
 
 build: off
 
 test_script:
-  - 'uname -or'
   - '%perl% Makefile.PL'
   - '%make%'
   - '%make% test'
