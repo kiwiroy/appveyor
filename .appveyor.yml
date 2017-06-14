@@ -8,6 +8,7 @@ environment:
     PERL_ALIEN_MSYS_BIN: C:\msys64\usr\bin
   matrix:
     - perl_type: strawberry
+    - perl_type: system
 
 install:
   - 'call .appveyor.cmd perl_setup'
