@@ -14,6 +14,7 @@ install:
   - '%perl% -V'
   - 'sh --version'
   - 'set'
+  - 'where uname'
   - 'uname -or'
   - 'uname -m'
   - 'uname -s'

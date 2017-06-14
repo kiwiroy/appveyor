@@ -14,6 +14,7 @@ share {
   build [
     'sh config -v -t --prefix=/tmp',
     '%{make}',
-    'where sh'
+    'where sh',
+    'where uname',
   ];
 };
