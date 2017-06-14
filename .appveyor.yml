@@ -15,6 +15,7 @@ install:
   - 'sh --version'
   - 'set'
   - 'where uname'
+  - 'where grep'
   - 'uname -or'
   - 'uname -m'
   - 'uname -s'
