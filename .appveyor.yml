@@ -5,6 +5,7 @@ environment:
   global:
     AUTHOR_TESTING: 1
     CONFIGURE_CHECKER_WARN: 1
+    PERL_ALIEN_MSYS_BIN: C:\msys64\usr\bin
   matrix:
     - perl_type: strawberry
 
