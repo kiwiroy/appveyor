@@ -10,10 +10,20 @@ install:
       bash -c @"
         exec 0</dev/null 2>&1
         git clone https://github.com/kiwiroy/openssl.git
-        ls -l . openssl
+        cd openssl
       "@
 
-build: off
+build_script:
+    - ps: >-
+        bash -c @"
+          set -e
+          # stdin seems to be invalid on appveyor, so set it to null
+          exec 0</dev/null 2>&1
+          pwd
+          cd openssl
+          ./Configure mingw64 no-shared
+          make
+        "@
 
 test_script:
   - set
