@@ -1,33 +1,14 @@
-version: '{build}'
-shallow_clone: true
-
-environment:
-  global:
-    AUTHOR_TESTING: 1
-    CONFIGURE_CHECKER_WARN: 1
-    PERL_ALIEN_MSYS_BIN: C:\msys64\usr\bin
-  matrix:
-    - perl_type: strawberry
-    - perl_type: system
 
 install:
-  - 'call .appveyor.cmd perl_setup'
-  - 'where perl'
-  - '%perl% -V'
-  - 'sh --version'
-  - 'set'
-  - 'where uname'
-  - 'where grep'
-  - 'uname -or'
-  - 'uname -m'
-  - 'uname -s'
-  - '%cpanm% --showdeps --with-develop --with-recommends --with-configure .'
-  - '%cpanm% --quiet --installdeps -n --with-develop --with-recommends --with-configure .'
+  - set "PATH=C:\msys64\usr\bin;C:\msys64\mingw64\bin;C:\Windows\System32;C:\Windows;%PATH%"
+  - set MSYSTEM=MINGW64
+  - pacman --noconfirm -Sy
+  - pacman --noconfirm --needed -S pacman-mirrors
+  - pacman --noconfirm -Sy
+  - pacman --noconfirm --needed -S base-devel git zip mingw-w64-x86_64-toolchain
 
 build: off
 
 test_script:
-  - '%perl% Makefile.PL'
-  - '%make%'
-  - '%make% test'
-  - 'where pacman'
+  - set
+  - env
