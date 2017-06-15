@@ -19,6 +19,7 @@ build_script:
           # stdin seems to be invalid on appveyor, so set it to null
           exec 0</dev/null 2>&1
           set -x
+          cd openssl
           ./config shared zlib enable-static-engine enable-rfc3779
           make
         "@
