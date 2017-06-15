@@ -10,7 +10,8 @@ install:
       bash -c @"
         exec 0</dev/null 2>&1
         set -x
-        git clone https://github.com/kiwiroy/openssl.git
+        wget --quiet https://github.com/openssl/openssl/archive/OpenSSL_1_1_0f.tar.gz
+        tar -zxf OpenSSL_1_1_0f.tar.gz
       "@
 
 build_script:
