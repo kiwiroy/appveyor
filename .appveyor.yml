@@ -7,11 +7,11 @@ install:
   - pacman --noconfirm -Sy
   - pacman --noconfirm --needed -S base-devel git zip mingw-w64-x86_64-openssl mingw-w64-x86_64-toolchain
   - ps: >-
-    bash -c @"
-      exec 0</dev/null 2>&1
-      git clone https://github.com/kiwiroy/openssl.git
-      ls -l . openssl
-    "@
+      bash -c @"
+        exec 0</dev/null 2>&1
+        git clone https://github.com/kiwiroy/openssl.git
+        ls -l . openssl
+      "@
 
 build: off
 
