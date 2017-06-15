@@ -8,32 +8,18 @@ install:
   - pacman --noconfirm --needed -S base-devel git zip mingw-w64-x86_64-toolchain
   - ps: >-
       bash -c @"
-        set -x
         exec 0</dev/null 2>&1
+        set -x
         git clone https://github.com/kiwiroy/openssl.git
-        cd openssl
-        ./config -v
       "@
 
 build_script:
     - ps: >-
         bash -c @"
-          set -x
           # stdin seems to be invalid on appveyor, so set it to null
           exec 0</dev/null 2>&1
-          if gcc -v 2>&1 | grep "Target.*x86_64" >/dev/null ; then
-            IS64BIT=1
-          else
-            IS64BIT=
-          fi
-          if [ $IS64BIT ] ; then
-            OPENSSLTARGET=mingw64
-          else
-            OPENSSLTARGET=mingw
-          fi
-          pwd
-          cd openssl
-          ./Configure $OPENSSLTARGET shared zlib enable-static-engine enable-rfc3779
+          set -x
+          ./config shared zlib enable-static-engine enable-rfc3779
           make
         "@
 
